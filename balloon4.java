@@ -12,6 +12,11 @@ public class balloon4 extends Actor
      * Act - do whatever the balloon4 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public balloon4(){
+       GreenfootImage img = new GreenfootImage("/Users/isabellee/Desktop/hangman/images/balloon4.png");
+        img.scale(img.getWidth()/3, img.getHeight()/3);
+        setImage(img);
+    }
     public void act()
     {
         // Add your action code here.

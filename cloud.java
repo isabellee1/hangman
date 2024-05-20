@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class monster here.
+ * Write a description of class cloud here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class monster extends Actor
+public class cloud extends Actor
 {
     /**
-     * Act - do whatever the monster wants to do. This method is called whenever
+     * Act - do whatever the cloud wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()

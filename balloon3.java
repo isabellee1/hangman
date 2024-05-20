@@ -12,6 +12,11 @@ public class balloon3 extends Actor
      * Act - do whatever the balloon3 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public balloon3(){
+       GreenfootImage img = new GreenfootImage("/Users/isabellee/Desktop/hangman/images/balloon3.png");
+        img.scale(img.getWidth()/3, img.getHeight()/3);
+        setImage(img);
+    }
     public void act()
     {
         // Add your action code here.
