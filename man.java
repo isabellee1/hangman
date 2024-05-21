@@ -13,9 +13,11 @@ public class man extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public man(){
-       GreenfootImage img = new GreenfootImage("/Users/isabellee/Desktop/hangman/images/man.png");
+
+       GreenfootImage img = new GreenfootImage("images/man.png");
         img.scale(img.getWidth()/3, img.getHeight()/3);
-        setImage(img);
+         setImage(img);
+
     }
     public void act()
     {

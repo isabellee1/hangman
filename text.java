@@ -11,7 +11,7 @@ public class text extends Actor
 {
     
     public text(){
-       GreenfootImage img = new GreenfootImage("/Users/isabellee/Desktop/hangman/images/thin-black-line.png");
+       GreenfootImage img = new GreenfootImage("images/thin-black-line.png");
         img.scale(img.getWidth()/10, img.getHeight());
         setImage(img);
     }
