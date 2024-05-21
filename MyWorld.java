@@ -39,6 +39,36 @@ public class MyWorld extends World
         addObject(new balloon6(),420,145);
         addObject(new man(),420,250);
         addObject(new monster(), 250,350);
+        
+        //LETTERS
+        addObject(new A(),20,176);
+        addObject(new B(),50,176);
+        addObject(new C(),80,176);
+        addObject(new D(),110,176);
+        addObject(new E(),140,176);
+        addObject(new F(),170,176);
+        addObject(new G(),200,176);
+        addObject(new H(),230,176);
+        addObject(new I(),258,176);
+        addObject(new J(),286,176);
+        addObject(new K(),20,220);
+        addObject(new L(),50,220);
+        addObject(new M(),80,220);
+        addObject(new N(),110,220);
+        addObject(new O(),140,220);
+        addObject(new P(),170,220);
+        addObject(new Q(),200,220);
+        addObject(new R(),230,220);
+        addObject(new S(),258,220);
+        addObject(new T(),288,220);
+        addObject(new U(),80,264);
+        addObject(new V(),110,264);
+        addObject(new W(),142,264);
+        addObject(new X(),172,264);
+        addObject(new Y(),200,264);
+        addObject(new Z(),230,264);
+        
+
     }
     private void showCategory()
     {
