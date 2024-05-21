@@ -32,12 +32,12 @@ public class MyWorld extends World
             }
         }
         showCategory();
-        addObject(new balloon1(),450,176);
-        addObject(new balloon2(),465,185);
-        addObject(new balloon3(),470,180);
-        addObject(new balloon4(),400,150);
-        addObject(new balloon5(),440,155);
-        addObject(new balloon6(),420,145);
+        addObject(new balloon1(),429,153);
+        addObject(new balloon2(),490,160);
+        addObject(new balloon3(),471,156);
+        addObject(new balloon4(),455,193);
+        addObject(new balloon5(),450,146);
+        addObject(new balloon6(),462,134);
         addObject(new man(),420,250);
        
     }
@@ -45,6 +45,13 @@ public class MyWorld extends World
     {
         String category = Greenfoot.ask("Please name the category of the word");
         showText("Category: " + category, 300, 20);
+    }
+    public void act(){
+        if (Greenfoot.getRandomNumber(100)<2){  
+            addObject(new cloud1(), Greenfoot.getRandomNumber(600), 400);
+        }
+        
+
     }
     
     
