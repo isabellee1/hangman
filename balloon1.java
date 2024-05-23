@@ -13,7 +13,7 @@ public class balloon1 extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public balloon1(){
-       GreenfootImage img = new GreenfootImage("/Users/isabellee/Desktop/hangman/images/balloon1.png");
+       GreenfootImage img = new GreenfootImage("images/balloon1.png");
         img.scale(img.getWidth()/3, img.getHeight()/3);
         setImage(img);
         setRotation(340);

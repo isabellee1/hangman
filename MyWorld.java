@@ -13,6 +13,7 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    private String word;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -20,7 +21,7 @@ public class MyWorld extends World
         
         int x = 40;
         int y = 70;
-        String word = Greenfoot.ask("What word/phrase will your friend be trying to guess?");
+        this.word = Greenfoot.ask("What word/phrase will your friend be trying to guess?");
         
         for(int i =0; i < word.length(); i++){
             if(!(word.substring(i,i+1).equals(" "))){
@@ -32,6 +33,7 @@ public class MyWorld extends World
             }
         }
         showCategory();
+        Greenfoot.start();
         addObject(new balloon1(),429,153);
         addObject(new balloon2(),490,160);
         addObject(new balloon3(),471,156);
@@ -39,7 +41,36 @@ public class MyWorld extends World
         addObject(new balloon5(),450,146);
         addObject(new balloon6(),462,134);
         addObject(new man(),420,250);
-       
+        
+        //LETTERS
+        addObject(new A(),20,176);
+        addObject(new B(),50,176);
+        addObject(new C(),80,176);
+        addObject(new D(),110,176);
+        addObject(new E(),140,176);
+        addObject(new F(),170,176);
+        addObject(new G(),200,176);
+        addObject(new H(),230,176);
+        addObject(new I(),260,176);
+        addObject(new J(),290,176);
+        addObject(new K(),20,220);
+        addObject(new L(),50,220);
+        addObject(new M(),80,220);
+        addObject(new N(),110,220);
+        addObject(new O(),140,220);
+        addObject(new P(),170,220);
+        addObject(new Q(),200,220);
+        addObject(new R(),230,220);
+        addObject(new S(),260,220);
+        addObject(new T(),290,220);
+        addObject(new U(),80,264);
+        addObject(new V(),110,264);
+        addObject(new W(),140,264);
+        addObject(new X(),170,264);
+        addObject(new Y(),200,264);
+        addObject(new Z(),230,264);
+        
+
     }
     private void showCategory()
     {
@@ -50,8 +81,33 @@ public class MyWorld extends World
         if (Greenfoot.getRandomNumber(100)<2){  
             addObject(new cloud1(), Greenfoot.getRandomNumber(600), 400);
         }
+        search();
         
-
+    }
+    public void search(){
+        int x = 40;
+        int x_wrong = 20;
+        int y_wrong = 176;
+        for(int i =0; i < word.length(); i++){
+           if(Greenfoot.isKeyDown(word.substring(i,i+1))){
+            showText(word.substring(i,i+1), x, 70);
+            x+=50;
+            } 
+            else{
+                    addObject(new wrong_letter(),x_wrong, y_wrong);
+                    x_wrong+=30;
+                    if(x_wrong == 290){
+                        y_wrong +=44;
+                    }
+                    else if(x_wrong ==290 && y_wrong ==220){
+                        x_wrong = 80;
+                        y_wrong = 264;
+                    }
+                    
+            }
+                
+        }
+        
     }
     
     

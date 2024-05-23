@@ -14,7 +14,7 @@ public class cloud1 extends Actor
      */
     public cloud1(){
        int ran = Greenfoot.getRandomNumber(6)+3;
-        GreenfootImage img = new GreenfootImage("/Users/isabellee/Desktop/hangman/images/cloud1.png");
+        GreenfootImage img = new GreenfootImage("images/cloud1.png");
         img.scale(img.getWidth()/ran, img.getHeight()/ran);
         setImage(img);
     }
@@ -22,7 +22,7 @@ public class cloud1 extends Actor
     {
         MyWorld myWorld = (MyWorld)getWorld();
         setLocation(getX(),getY()-1); 
-        if(getY()<=10){
+        if(getY()<=5){
              getWorld().removeObject(this);
         }
     }

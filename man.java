@@ -22,5 +22,6 @@ public class man extends Actor
     public void act()
     {
         // Add your action code here.
+            
     }
 }

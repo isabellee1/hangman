@@ -1,20 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class H here.
+ * Write a description of class S here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class H extends Actor
+public class S extends Actor
 {
     /**
-     * Act - do whatever the H wants to do. This method is called whenever
+     * Act - do whatever the S wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-     public H(){
-            GreenfootImage img = new GreenfootImage("images/H.png");
-        img.scale(img.getWidth()/4, img.getHeight()/4);
+     public S(){
+            GreenfootImage img = new GreenfootImage("images/S.png");
+        img.scale(img.getWidth()/6, img.getHeight()/6);
         setImage(img);    
         }
     public void act()
