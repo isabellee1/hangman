@@ -81,32 +81,29 @@ public class MyWorld extends World
         if (Greenfoot.getRandomNumber(100)<2){  
             addObject(new cloud1(), Greenfoot.getRandomNumber(600), 400);
         }
-        search();
+        if(Greenfoot.getKey() !=null){
+            search();
+        }
+      
         
     }
     public void search(){
-        int x = 40;
+        int x = -10;
+     
         int x_wrong = 20;
         int y_wrong = 176;
         for(int i =0; i < word.length(); i++){
-           if(Greenfoot.isKeyDown(word.substring(i,i+1))){
-            showText(word.substring(i,i+1), x, 70);
             x+=50;
-            } 
-            else{
-                    addObject(new wrong_letter(),x_wrong, y_wrong);
-                    x_wrong+=30;
-                    if(x_wrong == 290){
-                        y_wrong +=44;
-                    }
-                    else if(x_wrong ==290 && y_wrong ==220){
-                        x_wrong = 80;
-                        y_wrong = 264;
-                    }
-                    
-            }
+           if(Greenfoot.isKeyDown(word.substring(i,i+1))){
+            showText(word.substring(i,i+1), x, 62);
+            
+        } 
                 
         }
+        
+    }
+    
+    public void gameOver(){
         
     }
     
