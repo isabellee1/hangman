@@ -14,6 +14,9 @@ public class MyWorld extends World
      * 
      */
     private String word;
+    private int wrong;
+    private int right;
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -81,10 +84,14 @@ public class MyWorld extends World
         if (Greenfoot.getRandomNumber(100)<2){  
             addObject(new cloud1(), Greenfoot.getRandomNumber(600), 400);
         }
-        if(Greenfoot.getKey() !=null){
-            search();
-        }
+        String key = Greenfoot.getKey();
       
+        //for(int i =0; i < word.length(); i++){
+          // if(key != null && key != word.substring(i,i+1)){
+            //addObject(new wrong_letter(), 150,150);
+            //} 
+        
+        search();
         
     }
     public void search(){
@@ -104,7 +111,9 @@ public class MyWorld extends World
     }
     
     public void gameOver(){
-        
+        if(wrong==word.length()){
+            
+        }
     }
     
     
