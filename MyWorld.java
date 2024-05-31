@@ -1,4 +1,7 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Write a description of class MyWorld here.
@@ -14,6 +17,8 @@ public class MyWorld extends World
      * 
      */
     private String word;
+    private List<String> guessedLetters;
+    private List<String> wrongLetters;
     private int wrong;
     private int right;
     
@@ -25,7 +30,8 @@ public class MyWorld extends World
         int x = 40;
         int y = 70;
         this.word = Greenfoot.ask("What word/phrase will your friend be trying to guess?");
-        
+        guessedLetters = new ArrayList<>();
+        wrongLetters = new ArrayList<>();
         for(int i =0; i < word.length(); i++){
             if(!(word.substring(i,i+1).equals(" "))){
                  addObject(new text(),x,y);
@@ -83,38 +89,49 @@ public class MyWorld extends World
     public void act(){
         if (Greenfoot.getRandomNumber(100)<2){  
             addObject(new cloud1(), Greenfoot.getRandomNumber(600), 400);
-        }
-        String key = Greenfoot.getKey();
-      
-        //for(int i =0; i < word.length(); i++){
-          // if(key != null && key != word.substring(i,i+1)){
-            //addObject(new wrong_letter(), 150,150);
-            //} 
-        
+        }   
         search();
         
     }
-    public void search(){
-        int x = -10;
-     
-        int x_wrong = 20;
-        int y_wrong = 176;
-        for(int i =0; i < word.length(); i++){
-            x+=50;
-           if(Greenfoot.isKeyDown(word.substring(i,i+1))){
-            showText(word.substring(i,i+1), x, 62);
-            
-        } 
-                
-        }
-        
-    }
     
-    public void gameOver(){
-        if(wrong==word.length()){
-            
+    public void search() {
+        String key = Greenfoot.getKey();
+        if (key != null && key.length() == 1) {
+            char guessedLetter = key.toUpperCase().charAt(0);
+            if (Character.isLetter(guessedLetter) && !guessedLetters.contains("" + guessedLetter)) {
+                guessedLetters.add("" + guessedLetter);
+                boolean found = false;
+                for (int i = 0; i < word.length(); i++) {
+                    if (word.toUpperCase().charAt(i) == guessedLetter) {
+                        showText("" + guessedLetter, 40 + i * 50, 62);
+                        found = true;
+                        right++;
+                        System.out.print(right);
+                    }
+                }
+                if (!found) {
+                    wrong++;
+                    addObject(new wrong_letter(), 20 + (wrong - 1) * 30, 300);
+                }
+                
+                checkGameOver();
+            }
         }
     }
+     private void checkGameOver() {
+        if (wrong >= 6) {
+            showText("Game Over! The word was: " + word, 300, 300);
+            Greenfoot.stop();
+        }
+        if(right >= word.length()){
+          showText("You Won! Congratulations", 300, 300);
+            Greenfoot.stop();  
+        }
+       
+    }
+        
+    
+   
     
     
 }
