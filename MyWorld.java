@@ -18,6 +18,7 @@ public class MyWorld extends World
      */
     private String word;
     private List<String> guessedLetters;
+    private List<String> rightLetters;
     private List<String> wrongLetters;
     private int wrong;
     private int right;
@@ -30,11 +31,13 @@ public class MyWorld extends World
         int x = 40;
         int y = 70;
         this.word = Greenfoot.ask("What word/phrase will your friend be trying to guess?");
+        rightLetters = new ArrayList<>();
         guessedLetters = new ArrayList<>();
         wrongLetters = new ArrayList<>();
         for(int i =0; i < word.length(); i++){
             if(!(word.substring(i,i+1).equals(" "))){
-                 addObject(new text(),x,y);
+                 rightLetters.add(word.substring(i,i+1));
+                addObject(new text(),x,y);
                  x+=50;
             }
             else{
@@ -106,7 +109,7 @@ public class MyWorld extends World
                         showText("" + guessedLetter, 40 + i * 50, 62);
                         found = true;
                         right++;
-                        System.out.print(right);
+                        
                     }
                 }
                 if (!found) {
@@ -120,14 +123,19 @@ public class MyWorld extends World
     }
      private void checkGameOver() {
         if (wrong >= 6) {
+            Greenfoot.playSound("game_over.wav");
             showText("Game Over! The word was: " + word, 300, 300);
             Greenfoot.stop();
         }
-        if(right >= word.length()){
-          showText("You Won! Congratulations", 300, 300);
+    if(right >= word.length() || right >= rightLetters.size()){
+          Greenfoot.playSound("win.mp3");
+            showText("You Won! Congratulations", 300, 300);
             Greenfoot.stop();  
         }
        
+    }
+    public int getWrong(){
+        return wrong;
     }
         
     

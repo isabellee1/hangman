@@ -20,6 +20,10 @@ public class balloon1 extends Actor
     }
     public void act()
     {
-        // Add your action code here.
+        MyWorld myWorld  = (MyWorld) getWorld();
+        if(myWorld.getWrong() ==1){
+           Greenfoot.playSound("balloon_pop.wav");
+            myWorld.removeObject(this); 
+        }
     }
 }
