@@ -28,6 +28,8 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        setPaintOrder(A.class, B.class, C.class,D.class, E.class,F.class,G.class,E.class,F.class,G.class,H.class,I.class,J.class,K.class,L.class,M.class,N.class,O.class,P.class,Q.class,R.class,S.class,T.class,U.class,V.class,W.class,X.class,Y.class,Z.class, 
+        textCloud.class,balloon1.class,balloon2.class,man.class,cloud1.class); 
         
         int x = 40;
         int y = 70;
@@ -44,7 +46,8 @@ public class MyWorld extends World
             }
             else if(!(word.substring(i,i+1).equals(" "))){
                  rightLetters.add(word.substring(i,i+1));
-                addObject(new text(),x,y);
+                addObject(new textCloud(),x,60);
+                 
                  x+=50;
             }
             else{
@@ -54,6 +57,7 @@ public class MyWorld extends World
         }
         showCategory();
         Greenfoot.start();
+    
         addObject(new balloon1(),429,153);
         addObject(new balloon2(),490,160);
         addObject(new balloon3(),471,156);
