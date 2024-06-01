@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * Write a description of class S here.
@@ -19,6 +20,16 @@ public class S extends Actor
         }
     public void act()
     {
-        // Add your action code here.
+            MyWorld myWorld = (MyWorld) getWorld();
+    ArrayList<Character> list = myWorld.getWrongList();
+    
+   
+    if (list.size() == 0) {
+        return;
+    }
+
+    else if (list.get(list.size() - 1).equals('S')) {
+        getWorld().removeObject(this);
+    }// Add your action code here.// Add your action code here.
     }
 }

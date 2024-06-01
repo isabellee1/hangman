@@ -17,11 +17,12 @@ public class MyWorld extends World
      * 
      */
     private String word;
-    private List<String> guessedLetters;
-    private List<String> rightLetters;
-    private List<String> wrongLetters;
+    private ArrayList<String> guessedLetters;
+    private ArrayList<String> rightLetters;
+    private ArrayList<Character> wrongLetters;
     private int wrong;
     private int right;
+    private boolean gameOver;
     
     public MyWorld()
     {    
@@ -30,12 +31,18 @@ public class MyWorld extends World
         
         int x = 40;
         int y = 70;
-        this.word = Greenfoot.ask("What word/phrase will your friend be trying to guess?");
+        gameOver = false;
+        this.word = Greenfoot.ask("What word/phrase will your friend be trying to guess? (less than 12 characters)");
         rightLetters = new ArrayList<>();
         guessedLetters = new ArrayList<>();
         wrongLetters = new ArrayList<>();
-        for(int i =0; i < word.length(); i++){
-            if(!(word.substring(i,i+1).equals(" "))){
+        
+           for(int i =0; i < word.length(); i++){
+            if((word.substring(i,i+1).equals("-"))|| (word.substring(i,i+1).equals("/")) || (word.substring(i,i+1).equals("'"))){
+               showText(word.substring(i,i+1),x,60); 
+               x+=50;
+            }
+            else if(!(word.substring(i,i+1).equals(" "))){
                  rightLetters.add(word.substring(i,i+1));
                 addObject(new text(),x,y);
                  x+=50;
@@ -43,6 +50,7 @@ public class MyWorld extends World
             else{
                 x+= 50;
             }
+         
         }
         showCategory();
         Greenfoot.start();
@@ -113,8 +121,10 @@ public class MyWorld extends World
                     }
                 }
                 if (!found) {
+                    wrongLetters.add(guessedLetter);
+                    
                     wrong++;
-                    addObject(new wrong_letter(), 20 + (wrong - 1) * 30, 300);
+                    
                 }
                 
                 checkGameOver();
@@ -123,12 +133,14 @@ public class MyWorld extends World
     }
      private void checkGameOver() {
         if (wrong >= 6) {
+            gameOver = true;  
             Greenfoot.playSound("game_over.wav");
             showText("Game Over! The word was: " + word, 300, 300);
-            Greenfoot.stop();
+            
         }
     if(right >= word.length() || right >= rightLetters.size()){
-          Greenfoot.playSound("win.mp3");
+        
+        Greenfoot.playSound("win.mp3");
             showText("You Won! Congratulations", 300, 300);
             Greenfoot.stop();  
         }
@@ -136,6 +148,12 @@ public class MyWorld extends World
     }
     public int getWrong(){
         return wrong;
+    }
+    public ArrayList getWrongList(){
+        return wrongLetters;
+    }
+    public boolean getGameOver(){
+        return gameOver;
     }
         
     

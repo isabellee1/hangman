@@ -21,7 +21,7 @@ public class balloon5 extends Actor
     public void act()
     {
         MyWorld myWorld  = (MyWorld) getWorld();
-        if(myWorld.getWrong() ==5){
+        if(myWorld.getWrong() ==6){
            Greenfoot.playSound("balloon_pop.wav");
             myWorld.removeObject(this); 
         }// Add your action code here.

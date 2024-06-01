@@ -1,4 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Write a description of class A here.
@@ -17,8 +19,17 @@ public class A extends Actor
         img.scale(img.getWidth()/4, img.getHeight()/4);
         setImage(img);    
         }
-    public void act()
-    {
-
+    public void act() {
+    MyWorld myWorld = (MyWorld) getWorld();
+    ArrayList<Character> list = myWorld.getWrongList();
+  
+   
+    if (list.size() == 0) {
+        return;
     }
+
+    else if (list.get(list.size() - 1).equals('A')) {
+        getWorld().removeObject(this);
+    }
+}
 }

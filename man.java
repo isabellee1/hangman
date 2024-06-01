@@ -21,6 +21,14 @@ public class man extends Actor
     }
     public void act()
     {
+        MyWorld myWorld = (MyWorld)getWorld();
+        
+        if(myWorld.getGameOver() == true){
+            setLocation(getX(),getY()+5); 
+        }
+        if(getY()>=390){
+             getWorld().removeObject(this);
+        }
         // Add your action code here.
             
     }

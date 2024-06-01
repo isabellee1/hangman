@@ -23,7 +23,7 @@ public class balloon1 extends Actor
         MyWorld myWorld  = (MyWorld) getWorld();
         if(myWorld.getWrong() ==1){
            Greenfoot.playSound("balloon_pop.wav");
-            myWorld.removeObject(this); 
+            getWorld().removeObject(this); 
         }
     }
 }
