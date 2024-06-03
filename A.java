@@ -22,7 +22,10 @@ public class A extends Actor
     public void act() {
     MyWorld myWorld = (MyWorld) getWorld();
     ArrayList<Character> list = myWorld.getWrongList();
-  
+    
+    if(myWorld.getGameOver()==true){
+        getWorld().removeObject(this);
+    }
    
     if (list.size() == 0) {
         return;

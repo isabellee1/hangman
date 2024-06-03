@@ -28,7 +28,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        setPaintOrder(A.class, B.class, C.class,D.class, E.class,F.class,G.class,E.class,F.class,G.class,H.class,I.class,J.class,K.class,L.class,M.class,N.class,O.class,P.class,Q.class,R.class,S.class,T.class,U.class,V.class,W.class,X.class,Y.class,Z.class, 
+        setPaintOrder(playAgain.class,gameOverB.class, gameWonB1.class,A.class, B.class, C.class,D.class, E.class,F.class,G.class,E.class,F.class,G.class,H.class,I.class,J.class,K.class,L.class,M.class,N.class,O.class,P.class,Q.class,R.class,S.class,T.class,U.class,V.class,W.class,X.class,Y.class,Z.class, 
         textCloud.class,balloon1.class,balloon2.class,man.class,cloud1.class); 
         
         int x = 40;
@@ -137,16 +137,20 @@ public class MyWorld extends World
     }
      private void checkGameOver() {
         if (wrong >= 6) {
-            gameOver = true;  
+            gameOver = true; 
+            addObject(new gameOverB(), 300, 10);
+            addObject(new gameOverB(), 300, 350);
             Greenfoot.playSound("game_over.wav");
-            showText("Game Over! The word was: " + word, 300, 300);
+            showText("Game Over! The word was: " + word, 300, 150);
+            addObject(new playAgain(), 300, 215);
             
         }
     if(right >= word.length() || right >= rightLetters.size()){
         
         Greenfoot.playSound("win.mp3");
-            showText("You Won! Congratulations", 300, 300);
-            Greenfoot.stop();  
+        addObject(new gameWonB1(), 300, 200);    
+        showText("You Won! Congratulations", 300, 150);
+         addObject(new playAgain(), 300, 215);   
         }
        
     }
