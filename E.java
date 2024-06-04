@@ -18,18 +18,22 @@ public class E extends Actor
         img.scale(img.getWidth()/4, img.getHeight()/4);
         setImage(img);    
         }
+    
     public void act()
     {
         MyWorld myWorld = (MyWorld) getWorld();
-    ArrayList<Character> list = myWorld.getWrongList();
-  
+    ArrayList<String> list = myWorld.getGuessedList();
+    
+    if(myWorld.getGameOver()==true){
+        getWorld().removeObject(this);
+    }
    
-    if (list.size() == 0) {
+    else if (list.size() == 0) {
         return;
     }
 
-    else if (list.get(list.size() - 1).equals('E')) {
+    else if (list.get(list.size() - 1).equals("E")) {
         getWorld().removeObject(this);
-    }// Add your action code here.
     }
+}
 }

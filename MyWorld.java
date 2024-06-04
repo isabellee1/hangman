@@ -115,6 +115,7 @@ public class MyWorld extends World
             char guessedLetter = key.toUpperCase().charAt(0);
             if (Character.isLetter(guessedLetter) && !guessedLetters.contains("" + guessedLetter)) {
                 guessedLetters.add("" + guessedLetter);
+               
                 boolean found = false;
                 for (int i = 0; i < word.length(); i++) {
                     if (word.toUpperCase().charAt(i) == guessedLetter) {
@@ -165,6 +166,9 @@ public class MyWorld extends World
     }
     public boolean getGameOver(){
         return gameOver;
+    }
+    public ArrayList getGuessedList(){
+        return guessedLetters;
     }
         
     

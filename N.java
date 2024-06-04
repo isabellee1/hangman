@@ -18,18 +18,21 @@ public class N extends Actor
         img.scale(img.getWidth()/6, img.getHeight()/6);
         setImage(img);    
         }
-    public void act()
+   public void act()
     {
-            MyWorld myWorld = (MyWorld) getWorld();
-    ArrayList<Character> list = myWorld.getWrongList();
-  
+        MyWorld myWorld = (MyWorld) getWorld();
+    ArrayList<String> list = myWorld.getGuessedList();
+    
+    if(myWorld.getGameOver()==true){
+        getWorld().removeObject(this);
+    }
    
-    if (list.size() == 0) {
+    else if (list.size() == 0) {
         return;
     }
 
-    else if (list.get(list.size() - 1).equals('N')) {
+    else if (list.get(list.size() - 1).equals("N")) {
         getWorld().removeObject(this);
-    }// Add your action code here.// Add your action code here.
     }
+}
 }

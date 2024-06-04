@@ -21,17 +21,17 @@ public class A extends Actor
         }
     public void act() {
     MyWorld myWorld = (MyWorld) getWorld();
-    ArrayList<Character> list = myWorld.getWrongList();
+    ArrayList<String> list = myWorld.getGuessedList();
     
     if(myWorld.getGameOver()==true){
         getWorld().removeObject(this);
     }
    
-    if (list.size() == 0) {
+    if (list.size() <= 0) {
         return;
     }
 
-    else if (list.get(list.size() - 1).equals('A')) {
+    else if (list.get(list.size() - 1).equals("A")) {
         getWorld().removeObject(this);
     }
 }
