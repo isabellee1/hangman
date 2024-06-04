@@ -28,7 +28,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        setPaintOrder(playAgain.class,gameOverB.class, gameWonB1.class,A.class, B.class, C.class,D.class, E.class,F.class,G.class,E.class,F.class,G.class,H.class,I.class,J.class,K.class,L.class,M.class,N.class,O.class,P.class,Q.class,R.class,S.class,T.class,U.class,V.class,W.class,X.class,Y.class,Z.class, 
+        setPaintOrder(playAgain.class,dead.class,alive.class,gameOverB.class, gameWonB1.class,A.class, B.class, C.class,D.class, E.class,F.class,G.class,E.class,F.class,G.class,H.class,I.class,J.class,K.class,L.class,M.class,N.class,O.class,P.class,Q.class,R.class,S.class,T.class,U.class,V.class,W.class,X.class,Y.class,Z.class, 
         textCloud.class,balloon1.class,balloon2.class,man.class,cloud1.class); 
         
         int x = 40;
@@ -40,7 +40,7 @@ public class MyWorld extends World
         wrongLetters = new ArrayList<>();
         
            for(int i =0; i < word.length(); i++){
-            if((word.substring(i,i+1).equals("-"))|| (word.substring(i,i+1).equals("/")) || (word.substring(i,i+1).equals("'"))){
+            if((word.substring(i,i+1).equals("-"))|| (word.substring(i,i+1).equals("/")) || (word.substring(i,i+1).equals("'")) || (word.substring(i,i+1).equals("."))){
                showText(word.substring(i,i+1),x,60); 
                x+=50;
             }
@@ -140,17 +140,20 @@ public class MyWorld extends World
             gameOver = true; 
             addObject(new gameOverB(), 300, 10);
             addObject(new gameOverB(), 300, 350);
+            addObject(new dead(), 188,181);
             Greenfoot.playSound("game_over.wav");
-            showText("Game Over! The word was: " + word, 300, 150);
-            addObject(new playAgain(), 300, 215);
+            showText("Game Over! The word was: " + word, 300, 375);
+            addObject(new playAgain(), 430, 221);
             
         }
     if(right >= word.length() || right >= rightLetters.size()){
         
         Greenfoot.playSound("win.mp3");
-        addObject(new gameWonB1(), 300, 200);    
-        showText("You Won! Congratulations", 300, 150);
-         addObject(new playAgain(), 300, 215);   
+    
+        addObject(new gameWonB1(), 300, 200); 
+        addObject(new alive(), 153,233);
+        showText("You Won! Congratulations!!", 404, 215);
+         addObject(new playAgain(), 404, 301);   
         }
        
     }
